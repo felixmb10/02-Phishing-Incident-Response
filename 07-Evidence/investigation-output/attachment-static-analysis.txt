@@ -1,0 +1,46 @@
+PROJECT 02 - ATTACHMENT STATIC ANALYSIS
+Case: INC-2026-0027
+
+=== FILE METADATA ===
+
+Name               Length CreationTime         LastWriteTime       
+----               ------ ------------         -------------       
+Account-Review.ps1    595 9/17/2026 9:33:01 PM 9/17/2026 9:34:02 PM
+
+
+
+
+=== SHA-256 ===
+
+Algorithm       Hash                                                                   Path                            
+---------       ----                                                                   ----                            
+SHA256          1087AF513037D27B5277EC6EA36A6E326F012D75D7EF4427CCC9CE37E03E6083       C:\Cybersecurity\Projects\02-...
+
+
+
+
+=== STRING / BEHAVIOR SCAN ===
+
+02-Phishing-Artifacts\attachments\Account-Review.ps1:7:$CurrentUser = whoami
+02-Phishing-Artifacts\attachments\Account-Review.ps1:8:$Computer = hostname
+02-Phishing-Artifacts\attachments\Account-Review.ps1:18:"Northstar SOC phishing simulation" | Out-File $Artifact
+
+
+
+
+=== ANALYST ASSESSMENT ===
+The controlled PowerShell attachment was 595 bytes.
+
+SHA-256:
+1087AF513037D27B5277EC6EA36A6E326F012D75D7EF4427CCC9CE37E03E6083
+
+The static string scan identified:
+- whoami
+- hostname
+- Out-File
+
+These strings correspond to user discovery, hostname discovery, and file creation behavior.
+
+The scan did not identify the tested strings associated with downloading content, HTTP/HTTPS references, encoded PowerShell, Invoke-Expression, scheduled-task persistence, registry modification, or Start-Process.
+
+These results represent a targeted static string scan and do not independently prove that a file is benign. Findings were correlated with manual script review, sandbox execution, and endpoint telemetry.

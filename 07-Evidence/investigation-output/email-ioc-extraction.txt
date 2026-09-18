@@ -1,0 +1,61 @@
+PROJECT 02 - EMAIL / HEADER IOC EXTRACTION
+Case: INC-2026-0027
+Endpoint/Workstation: Analyst Windows Host
+
+=== EMAIL ADDRESS CANDIDATES ===
+20260917144308.28471@micros0ft-support.example
+account-review@micros0ft-support.example
+bounce@mailer-notification.example
+finance.employee@northstar.example
+security@micros0ft-support.example
+
+
+=== IPV4 CANDIDATES ===
+198.51.100.27
+203.0.113.77
+
+
+=== DOMAIN/HOSTNAME CANDIDATES ===
+finance.employee
+header.from
+login-microsoft365-security.example
+mail.micros0ft-support.example
+mail.northstar.example
+mailer-notification.example
+micros0ft-support.example
+northstar.example
+smtp.mailfrom
+
+
+=== DEFANGED URL ===
+hxxps://login-microsoft365-security.example/account/verify
+
+
+=== ANALYST NOTES ===
+Automated extraction produced candidate indicators requiring analyst validation.
+
+Validated simulated suspicious indicators:
+- micros0ft-support.example
+- mail.micros0ft-support.example
+- login-microsoft365-security.example
+- mailer-notification.example
+- 203.0.113.77
+- 198.51.100.27
+- hxxps://login-microsoft365-security.example/account/verify
+
+Context/internal values:
+- mail.northstar.example
+- northstar.example
+- finance.employee@northstar.example
+
+False-positive domain extractions:
+- finance.employee
+- header.from
+- smtp.mailfrom
+
+The Message-ID value resembling an email address was not classified as a sender/account IOC.
+
+203.0.113.77 was assessed as the simulated likely originating IP based on the Received chain and X-Originating-IP.
+198.51.100.27 was assessed as simulated relay/mail-server infrastructure.
+
+All .example domains and documentation IP addresses belong to the controlled lab scenario and are not claimed to be real malicious infrastructure.

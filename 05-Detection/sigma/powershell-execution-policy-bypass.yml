@@ -1,0 +1,29 @@
+title: PowerShell Execution Policy Bypass
+id: 7b829f8e-2a5e-4a98-91f7-64c0c27dc202
+status: experimental
+description: Detects PowerShell execution using the ExecutionPolicy Bypass argument observed during the Project 02 phishing incident simulation.
+author: Felix Wa Muambi
+date: 2026-09-17
+references:
+    - Internal SOC Analyst Hands-On Project 02
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_image:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    selection_commandline:
+        CommandLine|contains:
+            - '-ExecutionPolicy Bypass'
+            - '-ExecutionPolicy bypass'
+            - '-ep bypass'
+    condition: selection_image and selection_commandline
+falsepositives:
+    - Legitimate administrative scripts that intentionally bypass the PowerShell execution policy
+    - Software deployment or management tools using PowerShell with ExecutionPolicy Bypass
+level: medium
+tags:
+    - attack.execution
+    - attack.t1059.001

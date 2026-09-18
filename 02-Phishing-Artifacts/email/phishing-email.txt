@@ -1,0 +1,32 @@
+From: Microsoft 365 Security <security@micros0ft-support.example>
+To: finance.employee@northstar.example
+Date: Thu, 17 Sep 2026 08:43:17 -0600
+Subject: ACTION REQUIRED: Unusual Sign-In Activity Detected
+Reply-To: account-review@micros0ft-support.example
+
+Microsoft 365
+
+Unusual Sign-In Activity Detected
+
+We detected an unusual sign-in attempt associated with your Microsoft 365 account.
+
+Location: Frankfurt, Germany
+Device: Unknown Windows Device
+Time: September 17, 2026, 08:39 AM
+
+For your protection, access to your account may be restricted unless you verify this activity.
+
+Review your account immediately:
+
+hxxps://login-microsoft365-security.example/account/verify
+
+If you do not verify your account within 30 minutes, access to Microsoft 365 services may be temporarily suspended.
+
+Microsoft 365 Security Team
+Account Protection Services
+
+--------------------------------------------------
+TRAINING ARTIFACT
+This message was created for a controlled cybersecurity lab.
+The domains and URL shown above use reserved .example domains and do not represent real malicious infrastructure.
+--------------------------------------------------
