@@ -22,19 +22,19 @@ This project demonstrates an evidence-driven workflow using a controlled Windows
 
 
 
-\*\*Case ID:\*\* INC-2026-0027  
+**Case ID:** INC-2026-0027  
 
-\*\*Environment:\*\* Northstar Regional Services - fictional organization  
+**Environment:** Northstar Regional Services - fictional organization  
 
-\*\*Endpoint:\*\* SOC-WINDOWS  
+**Endpoint:** SOC-WINDOWS  
 
-\*\*Endpoint IP:\*\* 192.168.121.137  
+**Endpoint IP:** 192.168.121.137  
 
-\*\*SIEM:\*\* Wazuh  
+**SIEM:** Wazuh  
 
-\*\*Endpoint Telemetry:\*\* Sysmon  
+**Endpoint Telemetry:** Sysmon  
 
-\*\*Incident Type:\*\* Simulated phishing / suspicious PowerShell execution
+**Incident Type:** Simulated phishing / suspicious PowerShell execution
 
 
 
@@ -137,25 +137,15 @@ Detection Engineering
 
 
 | Tool | Purpose |
-
 |---|---|
-
-| PowerShell | Artifact analysis, IOC extraction, hashing, endpoint execution, evidence collection |
-
+| PowerShell | Artifact analysis, IOC extraction, hashing, endpoint execution, and evidence collection |
 | CyberChef | Safe URL refanging and analysis |
-
 | VirusTotal | Threat-intelligence enrichment practice |
-
 | URLhaus | Malicious URL intelligence analysis |
-
 | ANY.RUN | Controlled dynamic attachment analysis |
-
 | Sysmon | Windows process telemetry |
-
 | Wazuh | SIEM investigation, alerting, hunting, and custom detection |
-
 | Sigma CLI | Vendor-neutral detection-rule validation |
-
 | VMware Workstation | Isolated virtualized lab environment |
 
 
@@ -422,7 +412,7 @@ Execution command:
 
 ```powershell
 
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\Public\\Account-Review.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\Public\Account-Review.ps1
 
 ```
 
@@ -440,7 +430,7 @@ Observed PowerShell process:
 
 PID:       8288
 
-User:      SOC-WINDOWS\\felix
+User:      SOC-WINDOWS\felix
 
 Integrity: Medium
 
@@ -496,7 +486,7 @@ Structured hunting in Wazuh was used to locate the original execution:
 
 ```text
 
-data.win.eventdata.commandLine : \*Account-Review.ps1\*
+data.win.eventdata.commandLine : *Account-Review.ps1*
 
 ```
 
@@ -545,13 +535,9 @@ Broad free-text searches initially produced unrelated results. Searching the str
 
 
 | Technique | Tactic | Evidence |
-
 |---|---|---|
-
 | T1059.001 - PowerShell | Execution | PowerShell executed the controlled attachment using `-ExecutionPolicy Bypass` |
-
 | T1033 - System Owner/User Discovery | Discovery | `whoami.exe` executed as a child of the PowerShell process |
-
 
 
 No additional ATT&CK techniques are claimed without supporting evidence.
@@ -596,9 +582,9 @@ The controlled artifacts were removed:
 
 ```text
 
-C:\\Users\\Public\\Account-Review.ps1
+C:\Users\Public\Account-Review.ps1
 
-C:\\Users\\felix\\AppData\\Local\\Temp\\account-review-lab.txt
+C:\Users\felix\AppData\Local\Temp\account-review-lab.txt
 
 ```
 
@@ -960,11 +946,12 @@ This project demonstrates an end-to-end, evidence-driven SOC workflow:
 
 
 
-\*\*Phishing Triage -> Artifact Analysis -> Sandbox -> Endpoint Telemetry -> SIEM Investigation -> Incident Response -> Detection Engineering\*\*
+**Phishing Triage -> Artifact Analysis -> Sandbox -> Endpoint Telemetry -> SIEM Investigation -> Incident Response -> Detection Engineering**
 
 
 
 Rather than assuming compromise from the phishing scenario, technical conclusions were limited to behavior supported by collected evidence.
+
 
 
 
